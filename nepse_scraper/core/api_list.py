@@ -1,14 +1,11 @@
 from retrying import retry
-from .apis import api_dict
 import requests
 from datetime import datetime, date
 from urllib3.exceptions import InsecureRequestWarning
 from urllib3 import disable_warnings
 import json
-import os
-from importlib.resources import files
-from .parser import TokenParser, PayloadParser
-
+from nepse_scraper.parser import TokenParser, PayloadParser
+from .apis import api_dict
 
 
 ROOT_URL = 'https://www.nepalstock.com'
@@ -78,7 +75,7 @@ class Nepse:
                 params=querystring,
                 verify=False
             )
-            # shranavyawan
+            
             # Raise an exception if the response status code is not successful
             response.raise_for_status()
             return response

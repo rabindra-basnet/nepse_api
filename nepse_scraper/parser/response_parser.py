@@ -1,4 +1,4 @@
-from ..apis import api_dict
+from ..core.apis import api_dict
 from retrying import retry
 import requests
 from datetime import datetime, date
